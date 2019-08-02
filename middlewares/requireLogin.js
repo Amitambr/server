@@ -1,5 +1,6 @@
 module.exports = (req, res, next) => {
-  if (!req.user) {
+  console.log(typeof req.user !== "undefined", req.user);
+  if (typeof req.user === "undefined") {
     return res.status(401).send({ error: "You must log in!" });
   }
   next();
